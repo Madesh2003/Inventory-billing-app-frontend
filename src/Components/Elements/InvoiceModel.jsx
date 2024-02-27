@@ -80,7 +80,7 @@ const InvoiceModal = ({
 
   const sendInvoiceData = async () => {
     try {
-      const response = await axios.post("http://localhost:7000/api/invoices", {
+      const response = await axios.post("https://inventory-billing-app-backend-03.onrender.com/api/invoices", {
         invoiceInfo,
         items,
         businessInfo,
