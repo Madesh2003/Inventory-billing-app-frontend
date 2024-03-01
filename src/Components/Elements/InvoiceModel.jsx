@@ -86,7 +86,7 @@ const InvoiceModal = ({
         businessInfo,
       });
       if(response.status === 201){
-        navigate("/invoices")
+        navigate("/invoices-data")
       }else{
         console.log("err")
       }
