@@ -22,7 +22,7 @@ export default function Signup() {
     function handleSignup(event) {
         
         event.preventDefault();
-        axios.post("https://inventory-billing-app-backend-03.onrender.com/api/create",{firstname, lastname, email, phonenumber, password})
+        axios.post("https://inventory-billing-app-backend-02.onrender.com/api/create",{firstname, lastname, email, phonenumber, password})
         .then((res) => {
             if(res.status === 200){
                 setLoggedIn(true);
