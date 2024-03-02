@@ -1,5 +1,8 @@
 import PropTypes from "prop-types";
 
+
+const requiredFields = ["country", "issuedate", "duedate","invoiceNumber","businessname","email","clientname","clientemail","name","quality","price","tax"];
+
 export default function FormTextInput({
   id = "",
   name = "",
@@ -15,14 +18,13 @@ export default function FormTextInput({
 }) {   
 
   return (
-    <div>
-      <div className="flex flex-wrap items-center gap-3 my-2">
+        <>
         <label htmlFor={id} className="uppercase font-bold tracking-wider">
           {label}
         </label><br />
         <input
           type={type || "text"}
-          className={`block border-gray-500 shadow-sm border-b-1 focus:border-blue-600 hover:border-blue-600 duration-700 before:border-blue-500 outline-none placeholder:text-start placeholder:tracking-widest placeholder:font-semibold py-1 max-sm:w-56 sm:w-60 lg:w-72 md:w-56 ${width} `}
+          className={`block border-gray-500 shadow-sm border-b-1 focus:border-blue-600 hover:border-blue-600 duration-700 before:border-blue-500 outline-none placeholder:capitalize placeholder:text-start placeholder:tracking-widest placeholder:font-semibold py-1 ${width}`}
           id={id}
           name={name}
           placeholder={placeholder}
@@ -31,9 +33,9 @@ export default function FormTextInput({
           min={min}
           step={step}
           onBlur={onBlur}
+          required={requiredFields.includes(id)}
         />
-      </div>
-    </div>
+        </>
   );
 }
 

@@ -80,15 +80,13 @@ const InvoiceModal = ({
 
   const sendInvoiceData = async () => {
     try {
-      const response = await axios.post("http://localhost:7000/api/invoices", {
+      const response = await axios.post("https://inventory-billing-app-backend-02.onrender.com/api/invoices", {
         invoiceInfo,
         items,
         businessInfo,
       });
       if(response.status === 201){
-        navigate("/invoices")
-      }else{
-        console.log("err")
+        navigate("/invoices-data")
       }
     } catch (error) {
       console.error("Error sending invoice data:", error);
@@ -96,7 +94,7 @@ const InvoiceModal = ({
   };
 
   return (
-    <Transition appear show={isOpen} as={Fragment}>
+      <Transition appear show={isOpen} as={Fragment}>
       <Dialog
         as="div"
         className="fixed inset-0 overflow-y-auto"
@@ -191,13 +189,13 @@ const InvoiceModal = ({
                             <p className="mx-1">{item.itemdescription}</p>
                           </td>
                           <td className="min-w-[50px] text-center text-xs">
-                            {item.qty}
+                            {item.quality}
                           </td>
                           <td className="min-w-[80px] text-right text-xs">
                             &#8377;{Number(item.price).toFixed(2)}
                           </td>
                           <td className="min-w-[90px] text-right text-xs">
-                            &#8377;{Number(item.price * item.qty).toFixed(2)}
+                            &#8377;{Number(item.price * item.quality).toFixed(2)}
                           </td>
                         </tr>
                       ))}

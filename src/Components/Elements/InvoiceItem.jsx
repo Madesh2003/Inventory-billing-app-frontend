@@ -1,74 +1,76 @@
 import React from "react";
-import ItemField from "./ItemField";
 import { FaRegTrashAlt } from "react-icons/fa";
 import Buttons from "./Buttons";
+import FormTextInput from "./InputField";
 
 const InvoiceItem = ({
-  id,
+  index,
   name,
-  qty,
+  quality,
   price,
   itemdescription,
   onDeleteItem,
-  onEdtiItem,
+  onEditItem,
 }) => {
   const deleteItemHandler = () => {
-    onDeleteItem(id);
+    onDeleteItem(index);
+  };
+
+  const handleInputChange = (event) => {
+    onEditItem(event, index); 
   };
 
   return (
-    <tr className="flex flex-wrap justify-start gap-14">
+    <tr className="flex flex-wrap justify-between">
       <td className="">
-        <ItemField
-          onChange={(event) => onEdtiItem(event)}
+        <FormTextInput
+          onChange={handleInputChange}
           placeholder="name"
           type="text"
           name="name"
-          id={id}
           value={name}
+          width="w-100"
+          id="name"
+        />
+      </td>
+      <td className="">
+        <FormTextInput
+          onChange={handleInputChange}
+          placeholder="item description"
+          type="text"
+          name="itemdescription"
+          id="itemdescription"
+          value={itemdescription}
           width="w-150"
         />
       </td>
       <td className="">
-        <ItemField
-          onChange={(event) => onEdtiItem(event)}
-          placeholder="item description"
-          type="text"
-          name="itemdescription"
-          id={id}
-          value={itemdescription}
-          width="w-200"
-        />
-      </td>
-      <td className="">
-        <ItemField
-          onChange={(event) => onEdtiItem(event)}
+        <FormTextInput
+          onChange={handleInputChange}
           placeholder="quantity"
           type="number"
-          name="qty"
-          id={id}
+          name="quality"
+          id="quality"
+          value={quality}
           width="w-100"
-          value={qty}
-          
         />
       </td>
       <td>
-        <ItemField
-          onChange={(event) => onEdtiItem(event)}
+        <FormTextInput
+          onChange={handleInputChange}
           placeholder="Price"
           type="number"
           name="price"
-          id={id}
+          id="price"
           value={price}
           width="w-100"
         />
       </td>
       <td className="flex items-center justify-center">
-       
         <Buttons
-        func={deleteItemHandler}
-        type="button"
-        icons={ <FaRegTrashAlt />}
+          func={deleteItemHandler}
+          type="button"
+          icons={<FaRegTrashAlt />}
         />
       </td>
     </tr>

@@ -7,7 +7,7 @@ export default function InvoiceTable() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:7000/api/invoice-data")
+      .get("https://inventory-billing-app-backend-02.onrender.com/api/invoice-data")
       .then((response) => {
         setBillingData(response.data);
       })

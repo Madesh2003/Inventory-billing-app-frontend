@@ -17,7 +17,7 @@ export default function Login() {
 
     function handleLogin(event) {
         event.preventDefault();
-        axios.post("http://localhost:7000/api/signin", { email, password})
+        axios.post("https://inventory-billing-app-backend-02.onrender.com/api/signin", { email, password})
             .then((response) => {
                 if (response.status === 200) {
                     setLoggedIn(true);
