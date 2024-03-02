@@ -87,11 +87,6 @@ const InvoiceModal = ({
       });
       if(response.status === 201){
         navigate("/invoices-data")
-<<<<<<< HEAD
-=======
-      }else{
-        console.log("err")
->>>>>>> 0c203f4f7eae76a0ba6239c4f985a3a6b8fe3ec7
       }
     } catch (error) {
       console.error("Error sending invoice data:", error);
